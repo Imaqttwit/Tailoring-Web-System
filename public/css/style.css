@@ -1,39 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter&family=Montserrat&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap');
 
-body{
-    background-color: #E5D9B6;
-    font-family: 'Inter', sans-serif;
+
+  .logo-container img {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 5%; /* set a maximum width of 100% of the container */
+    height: auto; /* allow the height to adjust automatically to maintain the aspect ratio */
+  }
+
+
+  .card-img-top {
+    width: 373px; /* set the width of the image to 200 pixels */
+    height: 350px; /* allow the height to adjust automatically to maintain the aspect ratio */
+  }
+
+
+  .container {
+    height: 400px;
+    width: 700px;
+    position: center;
+    background-color: #302c2c;
+    border: 3px solid #f1f1f1;
+   
+    border-radius: 25px;
+    border-color: #302c2c;
 }
 
+
+
+.booknow {
+    margin: 0;
+    position: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #8e7575;
+}
+
+
+label{
+    color: #ffffff;
+}
+
+.rem{
+    color: black;
+}
+
+
+
+
+body{
+    background-image: url("../img/bg1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Inter', sans-serif;
+}
 h1,h2,h3,h4,h5,h6{
-    font-family: 'Playfair Display', serif;
- }
+   font-family: 'Playfair Display', serif;
+   color: #ffffff;
+}
 
 .navbar-brand{
     font-family: 'Playfair Display', serif;
-    color: #285430;
+    color: #ffffff ;
+
 }
 
 .navbar-nav .active{
-    border-bottom: #285430 solid 3px;
+    border-bottom: white solid 3px;
+    color: white !important;
 }
-
+.card-title{
+    color: #000000;
+}
 .hero-section{
-    background: url("../img/shirt.jpg") no-repeat;
-    height: 100vh;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+
 }
 
+.nav-link{
+    color: #ffffff;
+}
 .btn-dark-green{
-    background-color: #285430;
+    background-color: #AAA16F;
     color: white;
     text-transform: uppercase;
     border: none;
     padding: 10px 20px;
+    font-weight: bold;
 }
-
-
-
 

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,13 +20,41 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+    </style>
 </head>
+
 <body>
+            <div class="logo-container">
+            <img src="{{asset('img/logo.png')}}" alt="Logo">
+            </div>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
+
                 <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-                    EcoThread
+                   TAILORING APPOINTMENT SYSTEM
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,9 +63,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item "><a href="/" class="nav-link {{request()->is('/') ? 'active' : ''}}">Home</a></li>
-                        <li class="nav-item "><a href="/shop" class="nav-link {{request()->is('shop') ? 'active' : ''}}">Shop</a></li>
-                        <li class="nav-item "><a href="#" class="nav-link {{request()->is('contact') ? 'active' : ''}}">Contact</a></li>
+                    <li class="nav-item "><a href="/" class="nav-link {{request()->is('/') ? 'active' : ''}}">HOME</a></li>
+                    <li class="nav-item "><a href="/shop" class="nav-link {{request()->is('shop') ? 'active' : ''}}">SHOP</a></li>
+                    <li class="nav-item "><a href="/contact" class="nav-link {{request()->is('contact') ? 'active' : ''}}">CONTACT US</a></li>
+
+                    @if(Auth::user())
+                    <li class="nav-item "><a href="/order" class="nav-link {{request()->is('contact') ? 'active' : ''}}">ORDERS</a></li>
+                  
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -46,6 +80,9 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                                   
+
                                 </li>
                             @endif
                             <div class="vr"></div>
@@ -83,6 +120,4 @@
         </main>
     </div>
 </body>
-@yield('javascript')
-
 </html>

@@ -1,6 +1,6 @@
 <div class="container-fluid py-5">
     <div class="col-10 mx-auto">
-        <h1 class="text-center">Our Products</h1>
+        <h1 class="text-center">Supported Shops</h1>
         <div class="text-center my-4">
             {{$slot}}
         </div>
@@ -21,7 +21,8 @@
 </form>
 </div>
                     @else
-                    <a href="#" class="btn-dark-green text-decoration-none">Buy now</a>
+                 
+                    <a class="btn-dark-green text-decoration-none" href="/orderforms"><b>Book now</b> </a>
                     @endif
 
                 </div>
