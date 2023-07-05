@@ -1,5 +1,7 @@
 runtime: php
-env: flex
-
+env: standard
 runtime_config:
   document_root: public
+
+# Set the PHP version to 7.3 or earlier
+runtime: php73
