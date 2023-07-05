@@ -1,0 +1,17 @@
+runtime: php
+runtime_config:
+  document_root: public
+
+build:
+  steps:
+    - name: gcr.io/cloud-builders/composer
+      args: ['install', '--ignore-platform-reqs']
+
+    - name: gcr.io/cloud-builders/composer
+      args: ['run-script', 'post-autoload-dump']
+
+    - name: 'gcr.io/cloud-builders/npm'
+      args: ['install']
+
+    - name: 'gcr.io/cloud-builders/npm'
+      args: ['run', 'production']
