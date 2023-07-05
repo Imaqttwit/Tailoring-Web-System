@@ -15,6 +15,9 @@ RUN apt-get update && apt-get install -y \
 # Set up Apache configuration
 RUN a2enmod rewrite
 
+# Set the ServerName directive
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Expose the port
 EXPOSE 80
 
