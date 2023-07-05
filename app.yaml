@@ -3,11 +3,3 @@ env: flex
 
 runtime_config:
   document_root: public
-
-skip_files:
-  .env
-
-env_variables:
-  APP_LOG: errorlog
-  APP_KEY: base64:uB8+H2TOU/E8F40m4Y2stkQrvj0zfOokue/CswaypvY=
-  STORAGE_DIR: /tmp
