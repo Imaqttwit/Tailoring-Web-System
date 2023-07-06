@@ -1,25 +1,18 @@
-# Use a base image with PHP and Apache
-FROM php:7.4-apache
+FROM php:7.4-fpm-alpine
 
-# Set the working directory
-WORKDIR /var/www/html
+RUN apk add --no-cache nginx wget
 
-# Copy the source code into the container
-COPY . /var/www/html
+RUN mkdir -p /run/nginx
 
-# Install PHP dependencies
-RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip \
-    && docker-php-ext-install zip
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 
-# Set up Apache configuration
-RUN a2enmod rewrite
+RUN mkdir -p /app
+COPY . /app
 
-# Set the ServerName directive
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer"
+RUN cd /app && \
+    /usr/local/bin/composer install --no-dev
 
-# Expose the port
-EXPOSE 80
+RUN chown -R www-data: /app
 
-# Define the entry point command
-CMD ["apache2-foreground"]
+CMD sh /app/docker/startup.sh
