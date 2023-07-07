@@ -1,7 +1,15 @@
-runtime: php
-env: standard
-runtime_config:
-  document_root: public
+runtime: php82
 
-# Set the PHP version to 7.3 or earlier
-runtime: php73
+env_variables:
+  ## Put production environment variables here.
+  LOG_CHANNEL: stackdriver
+  APP_KEY: base64:pGgKt/uwwEAZU2aNy/Dn96BM1wdSmb20wE0uPaozmsA=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: cookie
+
+
+  ## To use Stackdriver logging in your Laravel application, copy
+  ## "app/Logging/CreateStackdriverLogger.php" and "config/logging.php"
+  ## into your Laravel application. Then uncomment the following line:
+  # LOG_CHANNEL: stackdriver
